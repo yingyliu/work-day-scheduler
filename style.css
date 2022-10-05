@@ -70,10 +70,16 @@ textarea {
   transition: all .3s ease-in-out;
 }
 
+/* */
 .container {
   max-width: none;
 }
 
-.time {
-  text-align: center;
+.line {
+  border-top: 1px dashed;
+}
+
+.line1 {
+  border-top: 1px dashed;
+  border-bottom: 1px dashed;
 }

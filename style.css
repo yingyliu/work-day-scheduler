@@ -73,3 +73,7 @@ textarea {
 .container {
   max-width: none;
 }
+
+.time {
+  text-align: center;
+}

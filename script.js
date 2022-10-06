@@ -26,5 +26,25 @@ $(".container .line").each(function (index, element) {
     }
 })
 
+// local storage
+var dailySchedule = document.getElementById("schedule");
+var savButton = document.getElementById("save");
 
+saveButton.addEventListener("click", function(event) {
+    event.preventDefault();
+    var dayPlanner = {
+        dailySchedule: dailySchedule.value.trim()
+    };
+
+    // Objects Setting
+    localStorage.setItem("dayPlannerStringify", JSON.stringify(dayPlanner));
+    localStorage.setItem("dayPlanner", dayPlanner);
+    
+    renderMessage();
+})
+
+function renderMessage() {
+    var rendertext = JSON.parse(localStorage.getItem("dayPlannerStringify"));
+
+}
 

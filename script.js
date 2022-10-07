@@ -26,8 +26,8 @@ $(".container .line").each(function (index, element) {
     }
 })
 
-// local storage
-var dayPlanner = JSON.parse(localStorage.getItem("dayPlannerStringify")|| "{}");
+// local storage function in JSON syntax
+var dayPlanner = JSON.parse(localStorage.getItem("dayPlannerStringify")|| "{}"); 
 $(".saveBtn").each(function(index,element) {
     var saveButton = element;
     $(saveButton).click(function(){

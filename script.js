@@ -27,24 +27,30 @@ $(".container .line").each(function (index, element) {
 })
 
 // local storage
-var dailySchedule = document.getElementById("schedule");
-var savButton = document.getElementById("save");
+var dayPlanner = JSON.parse(localStorage.getItem("dayPlannerStringify")|| "{}");
+$(".saveBtn").each(function(index,element) {
+    var saveButton = element;
+    $(saveButton).click(function(){
+        var dailySchedule = $(".schedule").eq(index);
+        var insert = "dailySchedule" + index;
+        dayPlanner[insert] = dailySchedule.val().trim();
 
-saveButton.addEventListener("click", function(event) {
-    event.preventDefault();
-    var dayPlanner = {
-        dailySchedule: dailySchedule.value.trim()
-    };
+        localStorage.setItem("dayPlannerStringify", JSON.stringify(dayPlanner));
+        localStorage.setItem("dayPlanner", dayPlanner);
 
-    // Objects Setting
-    localStorage.setItem("dayPlannerStringify", JSON.stringify(dayPlanner));
-    localStorage.setItem("dayPlanner", dayPlanner);
-    
-    renderMessage();
-})
+        renderMessage();
+
+    });
+});
 
 function renderMessage() {
-    var rendertext = JSON.parse(localStorage.getItem("dayPlannerStringify"));
-
+    var rendertext = JSON.parse(localStorage.getItem("dayPlannerStringify")|| "{}");
+    for (var i = 0; i < Object.keys(rendertext).length; i++) {
+        var insert = Object.keys(rendertext)[i];
+        var dailyScheduleLength = "dailySchedule".length;
+        var scheduleIndex = parseInt(insert.substring(dailyScheduleLength));
+        $(".container .row").eq(scheduleIndex).find("textarea").val(rendertext[insert]);
+    }
 }
+renderMessage();
 

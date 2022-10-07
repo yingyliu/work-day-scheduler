@@ -26,7 +26,7 @@ This is a daily schedule manager helping people to manage their time much more e
 - I learn how to utilize syntax of jQuery to write a funciton of local storage.
 
 ## Link
-https://yingyliu.github.io/password-generator/
+https://yingyliu.github.io/work-day-scheduler/
 
 ## License
 Please refer to the LICENSE in the repo.
